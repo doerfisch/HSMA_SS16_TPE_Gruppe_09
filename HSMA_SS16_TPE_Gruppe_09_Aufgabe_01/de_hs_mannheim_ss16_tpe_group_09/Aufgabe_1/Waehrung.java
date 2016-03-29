@@ -2,7 +2,7 @@ package Aufgabe_1;
 
 public class Waehrung {
 
-	//3 Klassenvariablensaa
+	//3 private Variablen name, kuerzel und kurs
 	private String name;
 	private String kuerzel;
 	private long kurs;
@@ -27,15 +27,15 @@ public class Waehrung {
 		return this.kurs;
 	}
 
-	//Umrechen-Methode mit Rückgabetyp long
-	//Rechnet Beträge von einer Waehrung in eine andere um
+	//Umrechen-Methode mit Rueckgabetyp long
+	//Rechnet Betraege von einer Waehrung in eine andere um
 	public long umrechnen(long Betrag, Waehrung Zielwaehrung) {
 		// Umwandlung in USD
 		//*100 um Rundungsfehler zu vermeiden
 		long hilfe = (Betrag * 100) * this.kurs;
 		// Umwandlung in Zielwaehrung
 		hilfe = hilfe / Zielwaehrung.kurs;
-		//Teilen durch 100 um auf Betragsgröße zu kommen
+		//Teilen durch 100 um auf Betragsgroe�e zu kommen
 		hilfe = hilfe / 100;
 		return hilfe;
 	}

@@ -2,16 +2,16 @@ package Aufgabe_1;
 
 	
 	public class Betrag {
-		// 2 private Klassenvariablen
+		// 2 private Variabeln betrag und waehrung
 		private long betrag;
 		private Waehrung waehrung;
 		
-		//Konstruktor 1, Ãœbergabe betrag + waehrung, 
+		//Konstruktor 1, Übergabe Betrag und Waehrung 
 		public Betrag (long  betrag, Waehrung waehrung){
 			this.betrag = betrag*100; 	
 			this.waehrung = waehrung;
 		}
-
+		//Konstruktor 2, Übergabe Betrag und Waehrung
 		public Betrag (double  betrag, Waehrung waehrung){
 			this.betrag = (long)(betrag*100);	
 			this.waehrung = waehrung;
@@ -99,18 +99,20 @@ package Aufgabe_1;
 			return summe;	
 		}
 		
-		//Prozent-Methode und speichern in long Variable
+		//Prozent-Methode und Ausgabe als long
 		public long prozent(long prozentwert){
 			long pwert = (this.betrag*prozentwert)/100;
 			return pwert;
 		}
 		
-		//Promille-Methode 
+		//Promille-Methode und Ausgabe als long
 		public long promille(long promillewert){
 			long pwert = (this.betrag*promillewert)/1000;
 			return pwert;
 		}
-
+		//Methode zum Erlangen der Vorkommazahl ohne Vorzeichen
+		//Der Betrag wird durch 100 geteilt, da er intern ohne Nachkommastellen benutzt wird (wirklicher Betrag = (double)Betrag/100)
+		//da wir nur den Vorkommabereich benötigen, ist der Cast in double obsolet
 		public long getVorkomma(){
 			if (this.betrag > 0) {
 				return this.betrag / 100;
@@ -119,7 +121,9 @@ package Aufgabe_1;
 				return (this.betrag * (-1)) / 100;
 			}
 		}
-		
+		//Methode zum Erlangen der Nachkommazahl ohne Vorzeichen
+		//Der Betrag wird durch 100 geteilt, da er intern ohne Nachkommastellen benutzt wird (wirklicher Betrag = (double)Betrag/100)
+		//da wir sonst die Nachkommastellen verlieren, ist ein Cast in double nötig
 		public long getNachkomma(){
 			double KommaZahl;
 			if (this.betrag < 0){
@@ -128,6 +132,7 @@ package Aufgabe_1;
 			else {
 			KommaZahl = (double)this.betrag/100;
 			}
+			// Modulo (%) gibt den Rest der Division durch eine Zahl (in unserem Fall 100) aus, also bei uns die Nachkommazahl
 			int zweiNachkommaStellen = (int)(KommaZahl * 100.0) % 100;
 			return zweiNachkommaStellen;
 			
@@ -139,7 +144,7 @@ package Aufgabe_1;
 			String ausgabe = this.getAsDouble()+" "+this.waehrung.getKuerzel();
 			return ausgabe;
 		}
-		
+		// Der Wert wird als double ausgegeben. Division durch 100, da wir in double die Nachkommastellen nutzen können
 		public double getAsDouble(){
 			double dWert = (double)this.betrag/100;
 			return dWert;

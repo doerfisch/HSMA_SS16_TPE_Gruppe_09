@@ -2,7 +2,7 @@ package Aufgabe_1;
 
 public class Konto {
 
-	// 4 private Klassenvariablen, Erstellung eines Arrays zu Abspeichern der Beträge
+	// 4 private Variabeln und Erstellung eines Arrays zum Abspeichern der Betraege
 	private String inhaber;
 	private Waehrung waehrung;
 	private Betrag saldo;
@@ -27,7 +27,7 @@ public class Konto {
 
 	// To-String Methode zum Ausgeben des Objekts als String
 	public String toString() {
-		// Variable initialisieren, um innerhalb und außerhalb der Schleife zu verwenden
+		// Variable initialisieren, um innerhalb und au�erhalb der Schleife zu verwenden
 		String buchungen = ""; 
 		//For-Schleife zum Speichern der Buchungen als String
 		for (int i = 0; i < betraege.length; i++) {
@@ -95,7 +95,7 @@ public class Konto {
 	public Betrag getSaldo() {
 		return this.saldo;
 	}
-
+	//Au�lesen des Wertes im Betraegearray an der Stelle ziel
 	public Betrag getBetraege(int ziel) {
 		Betrag betragX;
 		betragX = this.betraege[ziel];
@@ -118,7 +118,7 @@ public class Konto {
 			betragneu = new Betrag(betrag.getWaehrung().umrechnen(betrag.getBetrag(), this.waehrung), this.waehrung,
 					true);
 		}
-		//Abziehen oder Aufaddieren der Beträge auf Konto
+		//Abziehen oder Aufaddieren der Betraege auf Konto
 		if (betrag.getBetrag() < 0) {
 			saldoneu = saldo.subtrahiere(betragneu);
 		} else {
@@ -131,11 +131,11 @@ public class Konto {
 		saldo = new Betrag(saldoneu, this.waehrung, true);
 
 	}
-
+	//Ausgabe des Betrags (als long) von Saldo
 	public long saldo() {
 		return this.saldo.getBetrag();
 	}
-	//Gebuehren-methode mit Übergabe der Variablen pwert
+	//Gebuehren-methode mit Uebergabe der Variablen pwert
 	public long gebuehren(long pwert) {
 		long erg = this.saldo.promille(pwert);
 		//Speichern des Ergebnisses in neuer Varibale
