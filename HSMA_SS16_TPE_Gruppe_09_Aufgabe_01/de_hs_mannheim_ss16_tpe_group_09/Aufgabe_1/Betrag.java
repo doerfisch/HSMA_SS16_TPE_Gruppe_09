@@ -112,7 +112,6 @@ package Aufgabe_1;
 		}
 
 		public long getVorkomma(){
-			//sebasti erkärt mir später 
 			if (this.betrag > 0) {
 				return this.betrag / 100;
 			}
