@@ -1,0 +1,11 @@
+Aufgabe 2 - Warum haben Sie sich für Ihr Schema entschieden?
+
+Wir haben uns für folgendes Paket-Benennungs-Schema entschieden:
+"de_hs_mannheim_ss16_tpe_group_09"
+Darunter finden wir die Aufgaben(z.B. "Aufgabe_1" für die Pflichtübung 1 -> "de_hs_mannheim_ss16_tpe_group_09.Aufgabe_1")
+
+Warum kommt es nicht zu Kollisionen mit anderen Gruppen und Entwicklern?
+Mit unserer Namenskonvention versuchen wir anderen Gruppen und Entwicklern aus dem Weg zu gehen, indem wir uns immer mehr spezifizieren.
+de steht für Deutschland, hs_mannheim für die Hochschule Mannheim, ss16 für das Sommersemester 2016, TPE für den Kurs TPE und group_09 
+für die Gruppe, die ja einzigartig innerhalb des Kurses sind.
+Durch diese Spezifizierung vermeiden wir es verwechselt zu werden und entgehen Kollisionen mit anderen.
