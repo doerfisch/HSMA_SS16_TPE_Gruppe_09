@@ -29,13 +29,13 @@ public class Waehrung {
 
 	//Umrechen-Methode mit Rueckgabetyp long
 	//Rechnet Betraege von einer Waehrung in eine andere um
-	public long umrechnen(long Betrag, Waehrung Zielwaehrung) {
+	public long umrechnen(long betrag, Waehrung Zielwaehrung) {
 		// Umwandlung in USD
 		//*100 um Rundungsfehler zu vermeiden
-		long hilfe = (Betrag * 100) * this.kurs;
+		long hilfe = (betrag * 100) * this.kurs;
 		// Umwandlung in Zielwaehrung
 		hilfe = hilfe / Zielwaehrung.kurs;
-		//Teilen durch 100 um auf Betragsgroeﬂe zu kommen
+		//Teilen durch 100 um auf Betragsgroe√üe zu kommen
 		hilfe = hilfe / 100;
 		return hilfe;
 	}
@@ -44,7 +44,7 @@ public class Waehrung {
 	public String toString() { 
 		double dhilfe;
 		// Keine Klammer um ganze Rechnung weil (double) sich nur auf urspr.
-		// long-wert this.kurs bezieht
+		// long-wert 'this.kurs' bezieht
 		dhilfe = (double) (this.kurs) / 10000;
 		return this.name + " [" + this.kuerzel + "] 1 $ = " + dhilfe + " " + this.kuerzel;
 	}

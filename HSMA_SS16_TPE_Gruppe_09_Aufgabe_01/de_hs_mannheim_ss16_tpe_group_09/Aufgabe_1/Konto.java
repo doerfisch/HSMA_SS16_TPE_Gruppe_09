@@ -27,7 +27,7 @@ public class Konto {
 
 	// To-String Methode zum Ausgeben des Objekts als String
 	public String toString() {
-		// Variable initialisieren, um innerhalb und auﬂerhalb der Schleife zu verwenden
+		// Variable initialisieren, um innerhalb und au√üerhalb der Schleife zu verwenden
 		String buchungen = ""; 
 		//For-Schleife zum Speichern der Buchungen als String
 		for (int i = 0; i < betraege.length; i++) {
@@ -95,7 +95,7 @@ public class Konto {
 	public Betrag getSaldo() {
 		return this.saldo;
 	}
-	//Auﬂlesen des Wertes im Betraegearray an der Stelle ziel
+	//Au√ülesen des Wertes im Betraegearray an der Stelle ziel
 	public Betrag getBetraege(int ziel) {
 		Betrag betragX;
 		betragX = this.betraege[ziel];
@@ -141,6 +141,8 @@ public class Konto {
 		//Speichern des Ergebnisses in neuer Varibale
 		Betrag gebuehrenBetrag = new Betrag(erg, this.waehrung);
 		this.saldo.subtrahiere(gebuehrenBetrag);
+		//Gebuehrenbetrag buchen
+		this.buche(gebuehrenBetrag);
 		//Ausgabe des Saldos nach Abzug der Gebuehren
 		return erg;
 	}

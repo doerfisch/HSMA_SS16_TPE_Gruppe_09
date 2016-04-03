@@ -6,18 +6,19 @@ package Aufgabe_1;
 		private long betrag;
 		private Waehrung waehrung;
 		
-		//Konstruktor 1, Übergabe Betrag und Waehrung 
+		//Konstruktor 1, Ã¼bergabe Betrag und Waehrung 
 		public Betrag (long  betrag, Waehrung waehrung){
 			this.betrag = betrag*100; 	
 			this.waehrung = waehrung;
 		}
-		//Konstruktor 2, Übergabe Betrag und Waehrung
+		//Konstruktor 2, Ã¼bergabe Betrag und Waehrung
 		public Betrag (double  betrag, Waehrung waehrung){
 			this.betrag = (long)(betrag*100);	
 			this.waehrung = waehrung;
 		}
 		
 		//Neuer Konstruktor, um Probleme mit Pointer zu umgehen
+		//Betrag bereits mal 100 genommen, wird benutzt wenn saldo "Ã¼berschrieben" wird
 		public Betrag (long betrag, Waehrung waehrung, boolean saldoFlag){ 
 			this.betrag = betrag;
 			this.waehrung = waehrung;
@@ -107,12 +108,12 @@ package Aufgabe_1;
 		
 		//Promille-Methode und Ausgabe als long
 		public long promille(long promillewert){
-			long pwert = (this.betrag*promillewert)/1000;
+			long pwert = (this.betrag*promillewert)/1000; //isch halt so
 			return pwert;
 		}
 		//Methode zum Erlangen der Vorkommazahl ohne Vorzeichen
 		//Der Betrag wird durch 100 geteilt, da er intern ohne Nachkommastellen benutzt wird (wirklicher Betrag = (double)Betrag/100)
-		//da wir nur den Vorkommabereich benötigen, ist der Cast in double obsolet
+		//da wir nur den Vorkommabereich benÃ¶tigen, ist der Cast in double obsolet
 		public long getVorkomma(){
 			if (this.betrag > 0) {
 				return this.betrag / 100;
@@ -123,7 +124,7 @@ package Aufgabe_1;
 		}
 		//Methode zum Erlangen der Nachkommazahl ohne Vorzeichen
 		//Der Betrag wird durch 100 geteilt, da er intern ohne Nachkommastellen benutzt wird (wirklicher Betrag = (double)Betrag/100)
-		//da wir sonst die Nachkommastellen verlieren, ist ein Cast in double nötig
+		//da wir sonst die Nachkommastellen verlieren, ist ein Cast in double nÃ¶tig
 		public long getNachkomma(){
 			double KommaZahl;
 			if (this.betrag < 0){
@@ -144,17 +145,11 @@ package Aufgabe_1;
 			String ausgabe = this.getAsDouble()+" "+this.waehrung.getKuerzel();
 			return ausgabe;
 		}
-		// Der Wert wird als double ausgegeben. Division durch 100, da wir in double die Nachkommastellen nutzen können
+		// Der Wert wird als double ausgegeben. Division durch 100, da wir in double die Nachkommastellen nutzen kï¿½nnen
 		public double getAsDouble(){
 			double dWert = (double)this.betrag/100;
 			return dWert;
 		}
 		
-		
-
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
-	}
 
 }
