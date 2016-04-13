@@ -1,9 +1,11 @@
 package Aufgabe_2;
 
 public class Key {
-
-	private String key;
-
+	
+	public String key;
+	public Key(Character key){
+		this.key = Character.toString(key);
+	}
 	public Key(String key) {
 		this.key = key;
 	}

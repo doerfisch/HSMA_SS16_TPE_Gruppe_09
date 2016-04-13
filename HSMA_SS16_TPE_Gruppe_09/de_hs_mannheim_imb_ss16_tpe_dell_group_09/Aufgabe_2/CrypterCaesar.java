@@ -86,10 +86,10 @@ public class CrypterCaesar implements Crypter {
 	}
 
 	public static void main(String[] args) {
-		CrypterCaesar c1 = new CrypterCaesar("JA", 19);
+		CrypterCaesar c1 = new CrypterCaesar("JA", 3);
 		c1.verschluesselText();
 		System.out.println(c1.verschlText);
-		CrypterCaesar c2 = new CrypterCaesar(c1.verschlText, 19);
+		CrypterCaesar c2 = new CrypterCaesar(c1.verschlText, 3);
 		c1.reset();
 		c2.entschluesselText();
 		System.out.println(c2.verschlText);
