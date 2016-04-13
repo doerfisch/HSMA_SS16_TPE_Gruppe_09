@@ -13,6 +13,8 @@ package Aufgabe_2;
  * gelten: * {@code zeichen == decrypt(encrypt(zeichen))}.
  *
  */
+
+
 public interface Crypter {
 	/**
 	 * Setzt die Verschl ̈usselung zur ̈uck. Diese Methode ist bei einigen
@@ -32,6 +34,8 @@ public interface Crypter {
 	 *             Wird geworfen, wenn Probleme mit der Verschl ̈usselung
 	 *             auftreten.
 	 */
+	
+	
 	public char verschluesseln(char klartextZeichen) throws CrypterException;
 
 	/**
