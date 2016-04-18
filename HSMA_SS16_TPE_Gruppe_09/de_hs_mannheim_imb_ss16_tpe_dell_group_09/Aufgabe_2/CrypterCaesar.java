@@ -2,6 +2,7 @@ package Aufgabe_2;
 
 public class CrypterCaesar implements Crypter {
 
+	//Klassenvariablen
 	private String text;
 	private Key key;
 	private String verschlText;
@@ -9,7 +10,10 @@ public class CrypterCaesar implements Crypter {
 	final int ASCIIA = 65;
 	final int ASCIIZ = 90;
 	final int ASCII_ = 95;
+	final int ZERO = 0;
+	final int EINS = 1;
 
+	//Getter und Setter Methoden
 	public String getVerschlText() {
 		return verschlText;
 	}
@@ -22,10 +26,15 @@ public class CrypterCaesar implements Crypter {
 		return text;
 	}
 
-	public CrypterCaesar(String text, int key) {
+	//Konstruktor
+	public CrypterCaesar(String text, Key key) {
 		this.text = text;
-		this.key = new Key(key);
+		this.key = key;
 		this.verschlText = "";
+	}
+	
+	public CrypterCaesar(String text, String key) {
+		this(text, new Key(key));
 	}
 
 	@Override
@@ -50,7 +59,7 @@ public class CrypterCaesar implements Crypter {
 
 	@Override
 	public char verschluesseln(char klartextZeichen) throws CrypterException {
-		char hilfe = (char) (klartextZeichen + Integer.parseInt(this.key.getKey()));
+		char hilfe = (char) (klartextZeichen + (this.key.getKey().charAt(ZERO)-ASCIIAT));
 		while (hilfe < ASCIIA) {
 			hilfe = (char) (hilfe + (ASCIIZ - ASCIIAT));
 		}
@@ -75,7 +84,7 @@ public class CrypterCaesar implements Crypter {
 
 	@Override
 	public char entschluesseln(char cypherTextZeichen) throws CrypterException {
-		char hilfe = (char) (cypherTextZeichen - Integer.parseInt(this.key.getKey()));
+		char hilfe = (char) (cypherTextZeichen - (this.key.getKey().charAt(ZERO)-ASCIIAT));
 		while (hilfe < ASCIIA) {
 			hilfe = (char) (hilfe + (ASCIIZ - ASCIIAT));
 		}
@@ -84,15 +93,15 @@ public class CrypterCaesar implements Crypter {
 		}
 		return hilfe;
 	}
-
-	public static void main(String[] args) {
-		CrypterCaesar c1 = new CrypterCaesar("JA", 3);
-		c1.verschluesselText();
-		System.out.println(c1.verschlText);
-		CrypterCaesar c2 = new CrypterCaesar(c1.verschlText, 3);
-		c1.reset();
-		c2.entschluesselText();
-		System.out.println(c2.verschlText);
-
+	public static void main(String[] args){
+		CrypterCaesar cc = new CrypterCaesar("ZYX", "V");
+		cc.verschluesselText();
+		System.out.println(cc.getVerschlText());
+		CrypterCaesar cc2 = new CrypterCaesar(cc.getVerschlText(), "V");
+		cc2.entschluesselText();
+		System.out.println(cc2.getVerschlText());
+		
 	}
+	
+	
 }

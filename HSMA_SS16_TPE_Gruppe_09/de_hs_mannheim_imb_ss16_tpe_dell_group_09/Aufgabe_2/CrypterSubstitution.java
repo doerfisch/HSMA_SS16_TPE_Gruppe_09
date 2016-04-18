@@ -2,6 +2,7 @@ package Aufgabe_2;
 
 public class CrypterSubstitution implements Crypter {
 	
+	//Klassenvariablen
 	private String text;
 	private Key key;
 	private String verschlText;
@@ -11,6 +12,7 @@ public class CrypterSubstitution implements Crypter {
 	final int ASCII_ = 95;
 	final String ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
+	//Getter und Setter Methoden
 	public String getVerschlText() {
 		return verschlText;
 	}
@@ -27,9 +29,15 @@ public class CrypterSubstitution implements Crypter {
 		return key;
 	}
 	
+	//Konstruktor
 	public CrypterSubstitution(String text, Key key){
 		this.text = text;
 		this.key = key;
+		this.verschlText = "";
+	}
+	
+	public CrypterSubstitution(String text, String key) {
+		this(text, new Key(key));
 	}
 
 	@Override
@@ -39,7 +47,9 @@ public class CrypterSubstitution implements Crypter {
 	}
 	
 	public String verschluesselText() {
+		//For-Schleife zum Durchlaufen jedes einzelnen Buchstaben des zu verschlüsselnden Textes
 		for (int i = 0; i < this.getText().length(); i++) {
+			//Speichern des zu verschlüsselnden Buchstaben in Hilfsvaribale "Hilfe"
 			char hilfe = text.charAt(i);
 			try {
 				hilfe = this.verschluesseln(hilfe);
@@ -81,9 +91,14 @@ public class CrypterSubstitution implements Crypter {
 	@Override
 	public char entschluesseln(char cypherTextZeichen) throws CrypterException {
 //		char hilfe = (char) (cypherTextZeichen - Integer.parseInt(this.key.getKey()));
-		int arrayIndex = cypherTextZeichen - ASCIIA;
-		int subWert = this.ALPHABET.charAt(arrayIndex);
-		char hilfe = (char) (subWert);
+		int subWert = 0;
+		for (int i=0; i<this.getKey().getKey().length(); i++) {
+			if (cypherTextZeichen == this.getKey().getKey().charAt(i)){
+				subWert = i;
+				break;
+			}
+		}
+		char hilfe = (char) (subWert+ASCIIA);
 		while (hilfe < ASCIIA) {
 			hilfe = (char) (hilfe + (ASCIIZ - ASCIIAT));
 		}
@@ -93,12 +108,15 @@ public class CrypterSubstitution implements Crypter {
 		return hilfe;
 	}
 	public static void main (String [] args) {
-		CrypterSubstitution c1 = new CrypterSubstitution("WIKIPEDIAISTINFORMATIV", new Key("UFLPWDRASJMCONQYBVTEXHZKGI"));
-		CrypterSubstitution c2 = new CrypterSubstitution("ABCD", new Key("BCDE"));
+		CrypterSubstitution c1 = new CrypterSubstitution("WIKIPEDIAISTINFORMATIV", "UFLPWDRASJMCONQYBVTEXHZKGI");
+		CrypterSubstitution c12 = new CrypterSubstitution("ZSMSYWPSUSTESNDQVOUESH", "UFLPWDRASJMCONQYBVTEXHZKGI");
+		CrypterSubstitution c2 = new CrypterSubstitution("QUMVIBTMTFVTBUVEXDLLVTFXTMBPL", new Key("MNBVCXYLKJHGFDSAPOIUZTREWQ"));
 		System.out.println(c1.getText() + " " + c1.getKey().getKey());
 		c1.verschluesselText();
 		System.out.println(c1.getVerschlText());
 		c1.reset();
+		c12.entschluesselText();
+		System.out.println(c12.getVerschlText());
 		c1.entschluesselText();
 		System.out.println(c1.getVerschlText());
 		System.out.println(c2.getText() + " " + c2.getKey().getKey());
