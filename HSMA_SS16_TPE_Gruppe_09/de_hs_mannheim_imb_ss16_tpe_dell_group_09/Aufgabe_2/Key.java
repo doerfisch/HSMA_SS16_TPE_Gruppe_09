@@ -1,21 +1,23 @@
 package Aufgabe_2;
 
-public class Key {
+/**
+ * @author Melissa Zindl, Sebastian Schuler
+ *Generische Klasse Key, mit private key vom generischen Typ T,
+ *private, um Zugriff auf Key nicht zu erlauben
+ * @param <T>
+ */
+public class Key <T>{
 	
-	public String key;
-	public Key(Character key){
-		this.key = Character.toString(key);
-	}
-	public Key(String key) {
+	
+	
+	private T key;
+	
+	public Key (T key){
 		this.key = key;
 	}
-	public Key(int key){
-		this.key = Integer.toString(key);
-	}
-
-	public String getKey() {
+	
+	public T getKey (){
 		return key;
 	}
-	
 	
 }

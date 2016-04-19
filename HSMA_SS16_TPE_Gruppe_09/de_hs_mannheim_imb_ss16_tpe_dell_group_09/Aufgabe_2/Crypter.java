@@ -25,13 +25,13 @@ public interface Crypter {
 	public void reset();
 
 	/**
-	 * Verschl ̈usselt das gegebene Zeichen. *
+	 * Verschlüsselt das gegebene Zeichen. *
 	 * 
 	 * @param klartextZeichen
-	 *            Zeichen, das verschl ̈usselt werden soll. *
-	 * @return verschl ̈usseltes Zeichen.
+	 *            Zeichen, das verschlüsselt werden soll. *
+	 * @return verschlüsseltes Zeichen.
 	 * @throws CrypterException
-	 *             Wird geworfen, wenn Probleme mit der Verschl ̈usselung
+	 *             Wird geworfen, wenn Probleme mit der Verschlüsselung
 	 *             auftreten.
 	 */
 	
@@ -39,14 +39,14 @@ public interface Crypter {
 	public char verschluesseln(char klartextZeichen) throws CrypterException;
 
 	/**
-	 * Entschl ̈usselt das gegebenen Zeichen. *
+	 * Entschlüsselt das gegebenen Zeichen. *
 	 * 
 	 * @param cypherTextZeichen
-	 *            Zeichen, das entschl ̈usselt werden soll.
+	 *            Zeichen, das entschlüsselt werden soll.
 	 *
-	 * @return entschl ̈usseltes Zeichen.
+	 * @return entschüsseltes Zeichen.
 	 * @throws CrypterException
-	 *             Wird geworfen, wenn Probleme mit der * Verschl ̈usselung
+	 *             Wird geworfen, wenn Probleme mit der Verschlüsselung
 	 *             auftreten.
 	 */
 	public char entschluesseln(char cypherTextZeichen) throws CrypterException;

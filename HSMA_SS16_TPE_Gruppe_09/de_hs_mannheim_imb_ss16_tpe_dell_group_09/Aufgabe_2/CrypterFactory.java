@@ -1,19 +1,13 @@
 package Aufgabe_2;
 
+/**
+ * @author Melissa Zindl, Sebastian Schuler Klasse CrypterFactory zum Erstellen
+ *         der einzelnen Crypterklassen
+ *         Beispiele sind auskommentiert, da in den Tests behandelt
+ *
+ */
 public class CrypterFactory {
-	
-	public static void main (String [] args){
-		CrypterXOR cx = new CrypterXOR("SS\\RMOUG\\XR\\K_HDPJY]T\\XP\\^B\\_", new Key("EINSCHLUESSEL") );
-		cx.entschluesselText();
-		System.out.println("XOR Ergebnis: " + cx.getVerschlText());
-		
-		CrypterCaesar cc = new CrypterCaesar(cx.getVerschlText(), new Key ("V"));
-		cc.entschluesselText();
-		System.out.println("Caesar Ergebnis: " + cc.getVerschlText());
-		
-		CrypterSubstitution cs = new CrypterSubstitution(cc.getVerschlText(), new Key ("MNBVCXYLKJHGFDSAPOIUZTREWQ"));
-		cs.entschluesselText();
-		System.out.println("Finales Ergebnis: " + cs.getVerschlText());
-	}
-	
+//	public static CrypterSubstitution cSub1 = new CrypterSubstitution("WIKIPEDIAISTINFORMATIV", "UFLPWDRASJMCONQYBVTEXHZKGI");
+//	public static CrypterCaesar cCae1 = new CrypterCaesar("CAESAR", "C");
+//	public static CrypterXOR cXOR1 = new CrypterXOR("ABCDEFGHIJKLMNOPQRSTUVWXYZ", "TPERULES");
 }

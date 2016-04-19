@@ -1,65 +1,43 @@
 package Aufgabe_2;
 
-public class CrypterCaesar implements Crypter {
+/**
+ * @author Melissa Zindl, Sebastian Schuler Klasse CrypterCaesar zur
+ *         implementierung der Caesar-Verschlüsselung
+ */
+public class CrypterCaesar extends CrypterBasic implements Crypter {
 
-	//Klassenvariablen
-	private String text;
-	private Key key;
-	private String verschlText;
-	final int ASCIIAT = 64;
-	final int ASCIIA = 65;
-	final int ASCIIZ = 90;
-	final int ASCII_ = 95;
-	final int ZERO = 0;
-	final int EINS = 1;
+	// Klassenvariablen in Superklasse
 
-	//Getter und Setter Methoden
-	public String getVerschlText() {
-		return verschlText;
-	}
+	// Getter und Setter Methoden in Superklasse
 
-	public void setVerschlText(String verschlText) {
-		this.verschlText = verschlText;
-	}
-
-	public String getText() {
-		return text;
-	}
-
-	//Konstruktor
-	public CrypterCaesar(String text, Key key) {
+	// Konstruktoren
+	/**
+	 * @param text:
+	 *            Übergibt später zu verschölüsselnden Klartext
+	 * @param key:
+	 *            übergibt Schlüssel der generischen Klasse Key
+	 * @throws CrypterException:
+	 *             Wird geworfen, wenn Probleme mit der Verschlüsselung
+	 *             auftreten.
+	 */
+	public CrypterCaesar(String text, Key<String> key) throws CrypterException {
 		this.text = text;
-		this.key = key;
-		this.verschlText = "";
-	}
-	
-	public CrypterCaesar(String text, String key) {
-		this(text, new Key(key));
-	}
-
-	@Override
-	public void reset() {
-		// TODO Auto-generated method stub
-		verschlText = "";
-
-	}
-
-	public String verschluesselText() {
-		for (int i = 0; i < this.getText().length(); i++) {
-			char hilfe = text.charAt(i);
-			try {
-				hilfe = this.verschluesseln(hilfe);
-			} catch (CrypterException e) {
-				throw new RuntimeException("Fehler in der Entschlüsselung!");
-			}
-			verschlText = verschlText + hilfe;
+		// Prüft, ob Schlüssel leer ist
+		if (key.getKey().equals("") == true) {
+			throw new CrypterException("Schlüssel darf nicht leer sein");
+		} else {
+			this.key = key;
+			this.verschlText = "";
 		}
-		return verschlText;
+	}
+
+	public CrypterCaesar(String text, String key) throws CrypterException {
+		this(text, new Key<String>(key.toUpperCase()));
 	}
 
 	@Override
 	public char verschluesseln(char klartextZeichen) throws CrypterException {
-		char hilfe = (char) (klartextZeichen + (this.key.getKey().charAt(ZERO)-ASCIIAT));
+		char hilfe = (char) (klartextZeichen + (this.getKey().getKey().charAt(ZERO) - ASCIIAT));
 		while (hilfe < ASCIIA) {
 			hilfe = (char) (hilfe + (ASCIIZ - ASCIIAT));
 		}
@@ -67,24 +45,11 @@ public class CrypterCaesar implements Crypter {
 			hilfe = (char) (hilfe - (ASCIIZ - ASCIIAT));
 		}
 		return hilfe;
-	}
-
-	public String entschluesselText() {
-		for (int i = 0; i < this.getText().length(); i++) {
-			char hilfe = text.charAt(i);
-			try {
-				hilfe = this.entschluesseln(hilfe);
-			} catch (CrypterException e) {
-				throw new RuntimeException("Fehler in der Entschlüsselung!");
-			}
-			verschlText = verschlText + hilfe;
-		}
-		return verschlText;
 	}
 
 	@Override
 	public char entschluesseln(char cypherTextZeichen) throws CrypterException {
-		char hilfe = (char) (cypherTextZeichen - (this.key.getKey().charAt(ZERO)-ASCIIAT));
+		char hilfe = (char) (cypherTextZeichen - (this.key.getKey().charAt(ZERO) - ASCIIAT));
 		while (hilfe < ASCIIA) {
 			hilfe = (char) (hilfe + (ASCIIZ - ASCIIAT));
 		}
@@ -93,15 +58,5 @@ public class CrypterCaesar implements Crypter {
 		}
 		return hilfe;
 	}
-	public static void main(String[] args){
-		CrypterCaesar cc = new CrypterCaesar("ZYX", "V");
-		cc.verschluesselText();
-		System.out.println(cc.getVerschlText());
-		CrypterCaesar cc2 = new CrypterCaesar(cc.getVerschlText(), "V");
-		cc2.entschluesselText();
-		System.out.println(cc2.getVerschlText());
-		
-	}
-	
-	
+
 }
