@@ -6,11 +6,7 @@ package Aufgabe_2;
  */
 public class CrypterCaesar extends CrypterBasic implements Crypter {
 
-	// Klassenvariablen in Superklasse
 
-	// Getter und Setter Methoden in Superklasse
-
-	// Konstruktoren
 	/**
 	 * @param text:
 	 *            Übergibt später zu verschölüsselnden Klartext
@@ -23,7 +19,7 @@ public class CrypterCaesar extends CrypterBasic implements Crypter {
 	public CrypterCaesar(String text, Key<String> key) throws CrypterException {
 		this.text = text;
 		// Prüft, ob Schlüssel leer ist
-		if (key.getKey().equals("") == true) {
+		if ("".equals(key.getKey())) {
 			throw new CrypterException("Schlüssel darf nicht leer sein");
 		} else {
 			this.key = key;

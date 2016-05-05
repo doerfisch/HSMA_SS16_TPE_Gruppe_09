@@ -8,7 +8,7 @@ public class TestCrypterCaesar {
 	//Erstellung eines neuen Objektes zur Prüfung der verschlüssel-Text-Methode
 	@Test
 	public void verschlTest() throws CrypterException{
-	CrypterCaesar cc = new CrypterCaesar("ZYX", "V");
+	CrypterCaesar cc = new CrypterCaesar("ZYX", "ASD");
 	assertEquals(cc.verschluesselText(), "VUT");
 	}
 	

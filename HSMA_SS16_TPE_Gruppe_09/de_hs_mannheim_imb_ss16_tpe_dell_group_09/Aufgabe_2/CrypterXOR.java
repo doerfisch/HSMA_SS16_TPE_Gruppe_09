@@ -85,7 +85,7 @@ public class CrypterXOR extends CrypterBasic implements Crypter {
 		// Überprüfung ob hilfe größer als ASCII-Wert 95 (_) und Anpassung
 		while (hilfe > ASCII_) {
 			hilfe = (char) (hilfe - (ASCII_ - ASCIIAT));
-		}
+		} 
 		return hilfe;
 	}
 

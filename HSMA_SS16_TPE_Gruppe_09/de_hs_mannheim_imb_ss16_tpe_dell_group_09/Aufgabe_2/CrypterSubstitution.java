@@ -19,7 +19,7 @@ public class CrypterSubstitution extends CrypterBasic implements Crypter {
 	 */
 	public CrypterSubstitution(String text, Key<String> key) throws CrypterException {
 		this.text = text;
-		if (key.getKey().equals("") == true) {
+		if ("".equals(key.getKey())) {
 			throw new CrypterException("Schlüssel darf nicht leer sein");
 		} else {
 			this.key = key;
@@ -69,8 +69,5 @@ public class CrypterSubstitution extends CrypterBasic implements Crypter {
 		return hilfe;
 	}
 
-	public static void main(String[] args) throws CrypterException {
-		CrypterSubstitution cs1 = new CrypterSubstitution("CS", "");
-		System.out.println(cs1.getKey().getKey());
-	}
+	
 }

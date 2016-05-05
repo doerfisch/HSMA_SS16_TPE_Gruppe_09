@@ -105,7 +105,7 @@ public abstract class CrypterBasic implements Crypter {
 		return verschlText;
 	}
 	@Override
-	public abstract char verschluesseln(char klartextZeichen) throws CrypterException;
+	public abstract char verschluesseln(char klartextZeichen) throws CrypterException; //Abstrakte Methode, wird erst später verwendet
 
 	@Override
 	public abstract char entschluesseln(char cypherTextZeichen) throws CrypterException;
