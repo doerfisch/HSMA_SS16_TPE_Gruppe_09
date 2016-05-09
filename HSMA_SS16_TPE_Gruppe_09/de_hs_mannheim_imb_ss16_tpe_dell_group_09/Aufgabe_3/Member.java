@@ -2,7 +2,7 @@ package Aufgabe_3;
 
 public class Member {
 
-	private int mitgliedsID;
+	public int mitgliedsID;
 	private String vorname;
 	private String nachname;
 	private int anzahlJahre;
@@ -11,6 +11,13 @@ public class Member {
 		this.mitgliedsID = mitgliedsID;
 		this.vorname = vorname;
 		this.nachname = nachname;
+	}
+
+	public Member(int mitgliedsID, String vorname, String nachname, int anzahlJahre) {
+		this.mitgliedsID = mitgliedsID;
+		this.vorname = vorname;
+		this.nachname = nachname;
+		this.anzahlJahre = anzahlJahre;
 	}
 
 	public String getVorname() {
@@ -41,12 +48,11 @@ public class Member {
 		return mitgliedsID;
 	}
 
-	public boolean vergleicheID(int vergleichsID) {
-		if (this.mitgliedsID == vergleichsID) {
+	public boolean compareTo(Member member) {
+		if (this.getMitgliedsID() == member.getMitgliedsID()) {
 			return true;
-		} else {
+		} else
 			return false;
-		}
 	}
 
 	@Override
@@ -88,6 +94,6 @@ public class Member {
 
 	@Override
 	public String toString() {
-		return mitgliedsID + vorname + nachname + anzahlJahre;
+		return "MitgliedsID: " + mitgliedsID + "\n" + vorname + " " + nachname + "\nMitgliedsjahre: " + anzahlJahre;
 	}
 }
