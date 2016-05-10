@@ -26,7 +26,7 @@ public class ClubManagement {
 		vereinsListe.put(barts);
 		vereinsListe.put(lisas);
 		// Nun geben wir die Länge und den Inhalt der Liste aus
-		System.out.println("LÃ¤nge der ersten Liste: " + vereinsListe.size() + "\n");
+		System.out.println("Länge der ersten Liste: " + vereinsListe.size() + "\n");
 		System.out.println("Erste Liste:\n" + vereinsListe);
 		// Wir entfernen das Mitglied mit der ID "2"
 		vereinsListe.remove(2);
@@ -47,7 +47,7 @@ public class ClubManagement {
 		System.out.println("Erste Liste - Mitglied mit Nummer 5: " + vereinsListe.get(5));
 		// Hier wird der Vorname des Mitglieds mit der ID 5 in der ersten Liste
 		// geändert und das Mitglied danach ausgegeben
-		vereinsListe.get(5).setVorname("GÃ¼nter");
+		vereinsListe.get(5).setVorname("Günter");
 		System.out.println("Erste Liste - Mitglied mit Nummer 5: " + vereinsListe.get(5) + "\n");
 		// Das Mitglied mit der ID 5 wird in der zweiten Liste gelöscht und
 		// danach werden beide Listen ausgegeben
@@ -57,8 +57,8 @@ public class ClubManagement {
 		// - Da die Listen leer sind wird 0 ausgegeben
 		vereinsListe.clear();
 		vereinsListeZwei.clear();
-		System.out.println("LÃ¤nge der ersten Liste: " + vereinsListe.size());
-		System.out.println("LÃ¤nge der zweiten Liste: " + vereinsListeZwei.size());
+		System.out.println("Länge der ersten Liste: " + vereinsListe.size());
+		System.out.println("Länge der zweiten Liste: " + vereinsListeZwei.size());
 
 	}
 

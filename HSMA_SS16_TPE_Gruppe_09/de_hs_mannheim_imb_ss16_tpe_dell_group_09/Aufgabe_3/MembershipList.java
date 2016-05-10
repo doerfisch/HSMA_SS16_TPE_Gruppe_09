@@ -35,7 +35,7 @@ public class MembershipList extends HashMap<String, Member> implements Map<Strin
 	}
 
 	/**
-	 * Fügt ein mitglied der Liste hinzu Der Key wird aus der MitgliedsID
+	 * Fügt ein mitglied der Liste hinzu - Der Key wird aus der MitgliedsID
 	 * ausgelesen
 	 * 
 	 * @param mitglied

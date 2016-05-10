@@ -26,13 +26,13 @@ public class Member {
 
 	/**
 	 * Wird keine mitgliedsID mitgegeben (Standardfall), so wird die
-	 * Klassenvariable eindeutigeID genutzt und danach erhöht Dies sorgt für
+	 * Klassenvariable eindeutigeID genutzt und danach erhöht - dies sorgt für
 	 * eine eindeutige ID!
 	 * 
 	 * @param vorname
-	 *            Ã¼bergibt den Vornamen eines Mitglieds an den Konstruktor
+	 *            übergibt den Vornamen eines Mitglieds an den Konstruktor
 	 * @param nachname
-	 *            Ã¼bergibt den Nachnamen eines Mitglieds an den Konstruktor
+	 *            übergibt den Nachnamen eines Mitglieds an den Konstruktor
 	 */
 	public Member(String vorname, String nachname) {
 		this.mitgliedsID = eindeutigeID++;
@@ -43,15 +43,15 @@ public class Member {
 
 	/**
 	 * Wird keine mitgliedsID mitgegeben (Standardfall), so wird die
-	 * Klassenvariable eindeutigeID genutzt und danach erhöht Dies sorgt für
+	 * Klassenvariable eindeutigeID genutzt und danach erhöht - dies sorgt für
 	 * eine eindeutige ID!
 	 * 
 	 * @param vorname
-	 *            Ã¼bergibt den Vornamen eines Mitglieds an den Konstruktor
+	 *            übergibt den Vornamen eines Mitglieds an den Konstruktor
 	 * @param nachname
-	 *            Ã¼bergibt den Nachnamen eines Mitglieds an den Konstruktor
+	 *            übergibt den Nachnamen eines Mitglieds an den Konstruktor
 	 * @param anzahlJahre
-	 *            Ã¼bergibt die Mitgliedsjahre eins Members an den Konstruktor
+	 *            übergibt die Mitgliedsjahre eins Members an den Konstruktor
 	 */
 	public Member(String vorname, String nachname, int anzahlJahre) {
 		this.mitgliedsID = eindeutigeID++;
@@ -62,11 +62,11 @@ public class Member {
 
 	/**
 	 * @param mitgliedsID
-	 *            Ã¼bergibt MemberID an den Konstruktor
+	 *            übergibt MemberID an den Konstruktor
 	 * @param vorname
-	 *            Ã¼bergibt den Vornamen eines Mitglieds an den Konstruktor
+	 *            übergibt den Vornamen eines Mitglieds an den Konstruktor
 	 * @param nachname
-	 *            Ã¼bergibt den Nachnamen eines Mitglieds an den Konstruktor
+	 *            übergibt den Nachnamen eines Mitglieds an den Konstruktor
 	 */
 	public Member(int mitgliedsID, String vorname, String nachname) {
 		this.mitgliedsID = mitgliedsID;
@@ -77,13 +77,13 @@ public class Member {
 
 	/**
 	 * @param mitgliedsID
-	 *            Ã¼bergibt MemberID an den Konstruktor
+	 *            übergibt MemberID an den Konstruktor
 	 * @param vorname
-	 *            Ã¼bergibt den Vornamen eines Mitglieds an den Kosntruktor
+	 *            übergibt den Vornamen eines Mitglieds an den Kosntruktor
 	 * @param nachname
-	 *            Ã¼bergibt den Nachnamen eines Mitlgieds an den Konstruktor
+	 *            übergibt den Nachnamen eines Mitglieds an den Konstruktor
 	 * @param anzahlJahre
-	 *            Ã¼bergibt die Mitgliedsjahre eins Members an den Konstruktor
+	 *            übergibt die Mitgliedsjahre eines Mitglieds an den Konstruktor
 	 */
 	public Member(int mitgliedsID, String vorname, String nachname, int anzahlJahre) {
 		this.mitgliedsID = mitgliedsID;
@@ -122,7 +122,7 @@ public class Member {
 	}
 
 	/**
-	 * PrÃ¼ft die ID zweier Mitglieder auf Gleichheit
+	 * Prüft die ID zweier Mitglieder auf Gleichheit
 	 * 
 	 * @param member
 	 * @return true/false
