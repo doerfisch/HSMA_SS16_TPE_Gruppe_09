@@ -1,18 +1,59 @@
 package Aufgabe_3;
 
+/**
+ * @author Melissa Zindl, Sebastian Schuler
+ *
+ */
 public class Member {
 
+
+	/**
+	 * Klassenvariable
+	 * eindeutigeID legt die eindeutigeID fest
+	 */
+	public static int eindeutigeID = 1;
 	
 	/**
-	 * Klassenvariablen
+	 * Instanzvariablen
+	 * mitgliedsID ist die ID des Mitglieds - wird im Normalfall durch eindeutigeID bestimmt, kann im Spezialfall auch mitgegeben werden, sollte aber nur f�r Demozwecke verwendet werden!
+	 * vorname - der Vorname des Mitglieds
+	 * nachname - der Nachname des Mitglieds
+	 * anzahlJahr - die Anzahl der Jahre, die das Mitglied bereits im Verein ist, Standard ist 0
 	 */
 	public int mitgliedsID;
 	private String vorname;
 	private String nachname;
 	private int anzahlJahre;
-
+	
 	/**
-	 * @param mitgliedsID übergibt MemberID an Konstruktor
+	 * Wird keine mitgliedsID mitgegeben (Standardfall), so wird die Klassenvariable eindeutigeID genutzt und danach erh�ht
+	 * Dies sorgt f�r eine eindeutige ID!
+	 * @param vorname übergibt den Vornamen eines Mitglieds an den Konstruktor
+	 * @param nachname übergibt den Nachnamen eines Mitglieds an den Konstruktor
+	 */
+	public Member(String vorname, String nachname) {
+		this.mitgliedsID = eindeutigeID++;
+		this.vorname = vorname;
+		this.nachname = nachname;
+		this.anzahlJahre = 0;
+	}
+	
+	/**
+	 * Wird keine mitgliedsID mitgegeben (Standardfall), so wird die Klassenvariable eindeutigeID genutzt und danach erh�ht
+	 * Dies sorgt f�r eine eindeutige ID!
+	 * @param vorname übergibt den Vornamen eines Mitglieds an den Konstruktor
+	 * @param nachname übergibt den Nachnamen eines Mitglieds an den Konstruktor
+	 * @param anzahlJahre übergibt die Mitgliedsjahre eins Members an den Konstruktor
+	 */
+	public Member(String vorname, String nachname, int anzahlJahre) {
+		this.mitgliedsID = eindeutigeID++;
+		this.vorname = vorname;
+		this.nachname = nachname;
+		this.anzahlJahre = anzahlJahre;
+	}
+	
+	/**
+	 * @param mitgliedsID übergibt MemberID an den Konstruktor
 	 * @param vorname übergibt den Vornamen eines Mitglieds an den Konstruktor
 	 * @param nachname übergibt den Nachnamen eines Mitglieds an den Konstruktor
 	 */
@@ -20,13 +61,14 @@ public class Member {
 		this.mitgliedsID = mitgliedsID;
 		this.vorname = vorname;
 		this.nachname = nachname;
+		this.anzahlJahre = 0;
 	}
 
 	/**
-	 * @param mitgliedsID übergibt MemberID an zweiten Konstruktor
-	 * @param vorname übergibt den Vornamen eines Mitglieds an den zweiten Kosntruktor
-	 * @param nachname übergibt den Nachnamen eines Mitlgieds an den zweiten Konstruktor
-	 * @param anzahlJahre übergibt die Mitgliedsjahre eins Members an den zweiten Konstruktor
+	 * @param mitgliedsID übergibt MemberID an den Konstruktor
+	 * @param vorname übergibt den Vornamen eines Mitglieds an den Kosntruktor
+	 * @param nachname übergibt den Nachnamen eines Mitlgieds an den Konstruktor
+	 * @param anzahlJahre übergibt die Mitgliedsjahre eins Members an den Konstruktor
 	 */
 	public Member(int mitgliedsID, String vorname, String nachname, int anzahlJahre) {
 		this.mitgliedsID = mitgliedsID;
