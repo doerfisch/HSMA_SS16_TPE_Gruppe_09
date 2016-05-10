@@ -13,9 +13,6 @@ import com.sun.javafx.collections.MappingChange.Map;
  */
 public class MembershipList extends HashMap<String, Member> implements Map<String, Member> {
 
-	private String key;
-	private Member value;
-
 	/**
 	 * Konstruktoraufruf von Oberklasse HashMap ohne Parameter
 	 */
@@ -41,7 +38,7 @@ public class MembershipList extends HashMap<String, Member> implements Map<Strin
 	 * Fügt ein mitglied der Liste hinzu Der Key wird aus der MitgliedsID
 	 * ausgelesen
 	 * 
-	 * @param mitglied @throws
+	 * @param mitglied
 	 */
 	public void put(Member mitglied) {
 		put(Integer.toString(mitglied.getMitgliedsID()), mitglied);

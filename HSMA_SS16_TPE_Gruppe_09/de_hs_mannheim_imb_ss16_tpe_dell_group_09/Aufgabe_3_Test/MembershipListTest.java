@@ -15,7 +15,6 @@ public class MembershipListTest {
 	public static Member adam = new Member(3, "Adam", "Einser");
 	public static Member peter = new Member(6, "Peter", "Zweier");
 
-
 	@Test
 	public void putGetTest() {
 		vereinsListe.put(peter);
@@ -35,6 +34,7 @@ public class MembershipListTest {
 		assertEquals(idListe.get(2).getVorname(), "Ricardo");
 		assertEquals(idListe.get(3).getAnzahlJahre(), 0);
 	}
+
 	@Test
 	public void removeTest() {
 		vereinsListe.remove(3);

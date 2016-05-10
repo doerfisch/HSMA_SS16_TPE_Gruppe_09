@@ -11,7 +11,7 @@ import Aufgabe_3.Member;
  *
  */
 public class MemberTest {
-	//Testobjekte
+	// Testobjekte
 	public static Member klaus = new Member(6, "Klaus", "Zweier", 5);
 	public static Member irmgard = new Member(6, "Irmgard", "Zweier", 6);
 
@@ -19,7 +19,7 @@ public class MemberTest {
 	public void testCompareTo() {
 		assertTrue(klaus.compareTo(irmgard));
 	}
-	
+
 	@Test
 	public void testEquals() {
 		assertFalse(klaus.equals(irmgard));
