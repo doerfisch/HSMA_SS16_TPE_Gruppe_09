@@ -2,17 +2,32 @@ package Aufgabe_3;
 
 public class Member {
 
+	
+	/**
+	 * Klassenvariablen
+	 */
 	public int mitgliedsID;
 	private String vorname;
 	private String nachname;
 	private int anzahlJahre;
 
+	/**
+	 * @param mitgliedsID übergibt MemberID an Konstruktor
+	 * @param vorname übergibt den Vornamen eines Mitglieds an den Konstruktor
+	 * @param nachname übergibt den Nachnamen eines Mitglieds an den Konstruktor
+	 */
 	public Member(int mitgliedsID, String vorname, String nachname) {
 		this.mitgliedsID = mitgliedsID;
 		this.vorname = vorname;
 		this.nachname = nachname;
 	}
 
+	/**
+	 * @param mitgliedsID übergibt MemberID an zweiten Konstruktor
+	 * @param vorname übergibt den Vornamen eines Mitglieds an den zweiten Kosntruktor
+	 * @param nachname übergibt den Nachnamen eines Mitlgieds an den zweiten Konstruktor
+	 * @param anzahlJahre übergibt die Mitgliedsjahre eins Members an den zweiten Konstruktor
+	 */
 	public Member(int mitgliedsID, String vorname, String nachname, int anzahlJahre) {
 		this.mitgliedsID = mitgliedsID;
 		this.vorname = vorname;
@@ -20,6 +35,7 @@ public class Member {
 		this.anzahlJahre = anzahlJahre;
 	}
 
+	//Getter und Setter Methoden
 	public String getVorname() {
 		return vorname;
 	}
@@ -48,6 +64,11 @@ public class Member {
 		return mitgliedsID;
 	}
 
+	/**
+	 * Prüft die ID zweier Mitglieder auf Gleichheit
+	 * @param member
+	 * @return true/false
+	 */
 	public boolean compareTo(Member member) {
 		if (this.getMitgliedsID() == member.getMitgliedsID()) {
 			return true;

@@ -43,13 +43,22 @@ public class MembershipList extends HashMap<String, Member> implements Map<Strin
 		return result;
 	}
 
+	/**
+	 * Entfernt Mitglieder aus der Liste mit Hilfe des
+	 * @param key
+	 */
 	public void remove(int key) {
 		remove(Integer.toString(key));
 	}
 
+	/**
+	 * Methode zum Zugreifen auf Mitglieder mit Hilfe eines int-keys
+	 * 
+	 * @param key
+	 * @return key als String
+	 */
 	public Member get(int key) {
 		return get(Integer.toString(key));
-
 	}
 
 }

@@ -5,7 +5,13 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 import Aufgabe_3.*;
 
+/**
+ * Testumgebung
+ * @author Missi
+ *
+ */
 public class ClubManagement {
+	
 	public static MembershipList vereinsListe = new MembershipList();
 	public static MembershipList vereinsListeZwei = new MembershipList();
 	public static Member heinzm = new Member(2, "Heinz", "Mustermann", 16);

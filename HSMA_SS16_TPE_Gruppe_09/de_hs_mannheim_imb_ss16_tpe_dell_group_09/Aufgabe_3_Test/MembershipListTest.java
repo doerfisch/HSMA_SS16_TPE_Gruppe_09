@@ -5,13 +5,12 @@ import org.junit.Test;
 
 import Aufgabe_3.*;
 
-
 public class MembershipListTest {
-
+	// Testobjekte
 	public static MembershipList vereinsListe = new MembershipList(5);
 	public static Member adam = new Member(3, "Adam", "Einser");
 	public static Member peter = new Member(6, "Peter", "Zweier");
-	
+
 	@Test
 	public void test() {
 		vereinsListe.put(adam);
@@ -19,46 +18,44 @@ public class MembershipListTest {
 		assertEquals(vereinsListe.get("3"), adam);
 		System.out.println(vereinsListe);
 	}
-	
+
 	@Test
-	public void putGetTest(){
+	public void putGetTest() {
 		vereinsListe.put(peter);
 		assertEquals(vereinsListe.get("6"), peter);
 	}
-	
+
 	@Test
-	public void removeTest(){
+	public void removeTest() {
 		vereinsListe.remove(3);
-		assertEquals(vereinsListe.get(3), null); 
+		assertEquals(vereinsListe.get(3), null);
 	}
-	
+
 	@Test
-	public void mitgliedsIDtest(){
+	public void mitgliedsIDtest() {
 		assertEquals(vereinsListe.get(6).mitgliedsID, 6);
 	}
-	
+
 	@Test
-	public void clearTest(){
+	public void clearTest() {
 		vereinsListe.clear();
 		assertEquals(vereinsListe.size(), 0);
 	}
-	
+
 	@Test
-	public void cloneTest(){
+	public void cloneTest() {
 		assertEquals(vereinsListe.clone(), vereinsListe);
 	}
-	
+
 	@Test
-	public void konstruktorEinsTest(){
+	public void konstruktorEinsTest() {
 		MembershipList vereinsListeTest = new MembershipList(5);
 		assertNotEquals(vereinsListeTest, null);
 	}
-	
+
 	@Test(expected = IllegalArgumentException.class)
-	public void exceptionKonstruktorTest(){
+	public void exceptionKonstruktorTest() {
 		MembershipList vL = new MembershipList(-1);
-		
-		
 	}
 
 }
