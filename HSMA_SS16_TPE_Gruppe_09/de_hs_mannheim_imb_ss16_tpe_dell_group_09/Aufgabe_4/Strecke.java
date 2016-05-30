@@ -11,17 +11,46 @@ public class Strecke {
 		this.bloecke = bloecke;
 		this.zuege = zuege;
 		this.verlauf = new char[laenge];
-		for (Block block : bloecke) {
-			verlauf[block.getStart()] = '_';
-		}
+
 		for (Zug zug : zuege) {
-			verlauf[zug.getPosition()] = zug.getName();
+			if (zug.getPosition() != zug.block.getStart()) {
+				verlauf[zug.getPosition() - 1] = zug.getZugName();
+			} else {
+				verlauf[zug.getPosition()] = zug.getZugName();
+			}
+			zug.setStrecke(this);
+			zug.block.switchSignal();
 		}
 	}
 
 	@Override
 	public String toString() {
 		String ergebnis = "";
+		for (int i = 0; i < verlauf.length; i++) {
+			verlauf[i] = 0;
+		}
+		for (Block block : bloecke) {
+			if (block.getStart() != 0) {
+				if (block.signal == false) {
+					verlauf[block.getStart() - 1] = '|';
+				} else {
+					verlauf[block.getStart() - 1] = '_';
+				}
+			} else {
+				if (block.signal == false) {
+					verlauf[block.getStart()] = '|';
+				} else {
+					verlauf[block.getStart()] = '_';
+				}
+			}
+		}
+		for (Zug zug : zuege) {
+			if (zug.position == zug.block.getEnde()) {
+				verlauf[zug.position - 2] = zug.getZugName();
+			} else {
+				verlauf[zug.position - 1] = zug.getZugName();
+			}
+		}
 		for (char punkt : verlauf) {
 			if ("".equals(punkt) || punkt == 0) {
 				ergebnis = ergebnis + Character.toString('-');
