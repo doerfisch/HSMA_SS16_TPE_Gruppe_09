@@ -19,7 +19,6 @@ public class Strecke {
 				verlauf[zug.getPosition()] = zug.getZugName();
 			}
 			zug.setStrecke(this);
-			zug.block.switchSignal();
 		}
 	}
 

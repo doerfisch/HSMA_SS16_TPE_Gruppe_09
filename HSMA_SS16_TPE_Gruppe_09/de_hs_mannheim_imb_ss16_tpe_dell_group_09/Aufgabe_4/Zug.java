@@ -6,13 +6,14 @@ public class Zug extends Thread implements Runnable {
 	protected int geschwindigkeit;
 	protected Block block;
 	protected Strecke strecke;
-	private boolean cont = true;
+	private boolean cont = false;
 
 	public Zug(char name, int position, int geschwindigkeit, Block block) {
 		this.name = name;
 		this.position = position;
 		this.geschwindigkeit = geschwindigkeit;
 		this.block = block;
+		block.lock();
 
 	}
 
@@ -30,28 +31,45 @@ public class Zug extends Thread implements Runnable {
 
 	@Override
 	public void run() {
-		while (true) {
-//			synchronized (block) {
-				while (position <= block.getEnde()) {
+		while (!cont) {
+			synchronized (block) {
+				if (position <= block.getEnde()) {
 					int neuePosition = position + 1;
 					if ((neuePosition) > block.getEnde()) {
 						if (strecke.laenge < neuePosition) {
 							neuePosition = strecke.laenge;
+							cont = true;
 						} else {
 							for (Block iteratorBlock : strecke.bloecke) {
 								if (iteratorBlock.getStart() == block.getEnde()) {
-									block.switchSignal();
-									notify();
-									this.block = iteratorBlock;
-									block.switchSignal();
-									this.position = neuePosition;
-									strecke.verlauf[neuePosition] = getZugName();
+									/*
+									 * Wenn das Signal rot ist, darf der Zug
+									 * nicht fahren. Der Zug muss warten!
+									 */
+									if (!iteratorBlock.signal) {
+										synchronized (iteratorBlock) {
+											try {
+												iteratorBlock.wait();
+											} catch (InterruptedException e) {
+												break;
+											}
+										}
+									} else
+									/*
+									 * Wenn das Signal grün ist, darf der Zug
+									 * fahren. Der Zug wechselt den Block, der
+									 * alte Block wird entsperrt, der neue Block
+									 * wird gesperrt.
+									 */
+									{
+										block.unlock();
+										iteratorBlock.lock();
+										this.block = iteratorBlock;
+										this.position = neuePosition;
+										strecke.verlauf[neuePosition] = getZugName();
+									}
 								}
 							}
-						}
-						try {
-							wait();
-						} catch (InterruptedException e) {
 						}
 					} else {
 
@@ -66,8 +84,9 @@ public class Zug extends Thread implements Runnable {
 						}
 					}
 				}
+			yield();
 			}
 		}
 
 	}
-//}
+}

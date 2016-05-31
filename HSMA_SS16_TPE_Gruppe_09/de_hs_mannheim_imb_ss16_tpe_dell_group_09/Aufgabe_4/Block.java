@@ -19,8 +19,14 @@ public class Block {
 		return this.start;
 	}
 	
-	public void switchSignal(){
-		this.signal = !signal;
+	public synchronized void lock(){
+		this.signal = false;
 	}
 
+	public synchronized void unlock() {
+		synchronized (this) {
+			this.signal = true;
+			this.notify();
+		}
+	}
 }
