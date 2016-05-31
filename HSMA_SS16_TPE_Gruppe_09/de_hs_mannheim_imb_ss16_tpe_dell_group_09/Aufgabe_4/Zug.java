@@ -25,6 +25,7 @@ public class Zug extends Thread implements Runnable {
 		this.geschwindigkeit = geschwindigkeit;
 		this.block = block;
 		this.position = position;
+		block.lock();
 
 	}
 
