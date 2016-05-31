@@ -22,6 +22,7 @@ public class SimulationCrash {
 		Block b7 = new Block(60, 65);
 		Block b8 = new Block(65, 70);
 
+		// Hier wird der Crash provoziert, indem C und B auf dem gleichen Block sind!
 		Zug a = new Zug('A', 6, 5, b1);
 		Zug c = new Zug('C', 20, 5, b3);
 		Zug b = new Zug('B', 17, 15, b3);
