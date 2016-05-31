@@ -2,7 +2,7 @@ package Aufgabe_4;
 
 /**
  * @author Sebastian Schuler, Melissa Zindl Klasse Simulation, simuliert eine
- *         Strecke mit Blöcken und Zügen.
+ *         Strecke mit Blöcken und Zügen und gewolltem Crash.
  *
  */
 public class SimulationCrash {
@@ -23,8 +23,8 @@ public class SimulationCrash {
 		Block b8 = new Block(65, 70);
 
 		Zug a = new Zug('A', 6, 5, b1);
-		Zug b = new Zug('B', 17, 15, b3);
 		Zug c = new Zug('C', 20, 5, b3);
+		Zug b = new Zug('B', 17, 15, b3);
 		Zug d = new Zug('D', 30, 10, b4);
 		Zug e = new Zug('E', 45, 6, b5);
 
