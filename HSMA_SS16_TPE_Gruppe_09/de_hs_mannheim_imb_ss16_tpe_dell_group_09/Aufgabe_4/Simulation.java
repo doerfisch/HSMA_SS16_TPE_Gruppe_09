@@ -1,7 +1,17 @@
 package Aufgabe_4;
 
+/**
+ * @author Sebastian Schuler, Melissa Zindl Klasse Simulation, simuliert eine
+ *         Strecke mit Blöcken und Zügen.
+ *
+ */
 public class Simulation {
 
+	/**
+	 * @param args
+	 *            Main-Methode. Es werden die benötigten Objekte für die
+	 *            Simulation erstellt und danach die Simulation gestartet.
+	 */
 	public static void main(String[] args) {
 		Block b1 = new Block(0, 10);
 		Block b2 = new Block(10, 15);
@@ -18,45 +28,25 @@ public class Simulation {
 		Zug d = new Zug('D', 30, 10, b4);
 		Zug e = new Zug('E', 45, 6, b5);
 
-//		Thread t1 = new Thread(a, "thrugA");
-//		Thread t2 = new Thread(b, "thrugB");
-//		Thread t3 = new Thread(c, "thrugC");
-//		Thread t4 = new Thread(d, "thrugD");
-//		Thread t5 = new Thread(e, "thrugE");
-
 		Strecke s1 = new Strecke(70, new Block[] { b1, b2, b3, b4, b5, b6, b7, b8 }, new Zug[] { a, b, c, d, e });
+		// Erstausgabe der Strecke
 		System.out.println(s1);
-
+		// die Zug-Threads werden gestartet
 		for (Zug zug : s1.zuege) {
 			zug.start();
 		}
-
-//		t1.start();
-//		t2.start();
-//		t3.start();
-//		t4.start();
-//		t5.start();
-
+		// Es wird auf Beendigung der Zug-Threads gewartet, danach wird die
+		// Simulation beendet.
 		try {
-			a.join();
-			System.out.println(a.getName() + " beendet!");
-			b.join();
-			System.out.println(b.getName() + " beendet!");
-			c.join();
-			System.out.println(c.getName() + " beendet!");
-			d.join();
-			System.out.println(d.getName() + " beendet!");
-			e.join();
-			System.out.println(e.getName() + " beendet!");
-//			t1.join();
-//			t2.join();
-//			t3.join();
-//			t4.join();
-//			t5.join();
+			for (Zug zug : s1.zuege) {
+				zug.join();
+				System.out.println(zug.getName() + " mit Zug " + zug.getZugName() + " beendet!");
+			}
 		} catch (InterruptedException e2) {
+			e2.printStackTrace();
 		}
+		System.out.println(s1);
 		System.out.println("Die Simulation ist beendet");
 	}
-	
-	
+
 }
